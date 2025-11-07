@@ -9,11 +9,11 @@ class utility implements Serializable {
     }
 
     def cloneRepo(String repoUrl, String branch = 'main') {
-        def mvnHome = tool name: 'maven', type: 'maven'
-        stage('Clone & Build') {
-            dir('repo') {
-                git url: repoUrl, branch: branch
-                def output = sh(script: "grep -r '.pom' .", returnStatus: true)
+        def mvnHome = steps.tool name: 'maven', type: 'maven'
+        steps.stage('Clone & Build') {
+            steps.dir('repo') {
+                steps.git url: repoUrl, branch: branch
+                def output = steps.sh(script: "grep -r '.pom' .", returnStatus: true)
                 if (output == 0) {
                     steps.sh "${mvnHome}/bin/mvn -B -DskipTests clean install"
                 } else {
