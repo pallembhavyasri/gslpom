@@ -2,7 +2,7 @@ package com.example
 
     void test1(String repoUrl, String branch = 'main') {
         echo "11"
-        node("master"){
+        node{
         echo "22"
         def mvnHome = tool name: 'maven', type: 'maven'
         stage('Clone & Build') {
