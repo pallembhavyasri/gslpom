@@ -9,6 +9,7 @@ class utility implements Serializable {
     }
 
     def cloneRepo(String repoUrl, String branch = 'main') {
+         steps.node {
         def mvnHome = steps.tool name: 'maven', type: 'maven'
         steps.stage('Clone & Build') {
             steps.dir('repo') {
@@ -22,5 +23,6 @@ class utility implements Serializable {
             }
         }
     }
+}
 }
 
