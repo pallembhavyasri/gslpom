@@ -8,4 +8,9 @@ def call() {
         def obj = new com.example.test()
         obj.test1()
     }
+    else if(JOB_NAME.contains("sub-folder")){
+        def obj = new com.example.subfolder()
+        obj.createDelete()
+    }
+}
 }
