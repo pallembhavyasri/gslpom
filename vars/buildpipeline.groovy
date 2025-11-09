@@ -7,4 +7,8 @@ def call() {
     //obj.test1(repoUrl, branch)
     obj1.reposClone()
 }
+    else if(JOB_NAME.contains("test")){
+        def obj = new com.example.test()
+        obj.test1()
+    }
 }
