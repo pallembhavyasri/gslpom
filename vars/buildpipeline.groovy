@@ -9,8 +9,8 @@ def call() {
         obj.test1()
     }
     else if(JOB_NAME.contains("sub-folder")){
-        def obj = new com.example.subfolder()
+        def obj2 = new com.example.subfolder()
         obj.createDelete()
     }
 }
-}
+
