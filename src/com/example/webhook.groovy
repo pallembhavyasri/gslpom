@@ -14,7 +14,6 @@ node {
                     "commit_message": "Merge child1 into main"
                 }
             """
-
             response = httpRequest(
                 url: "https://api.github.com/repos/pallembhavyasri/webhooktest/merges",
                 httpMode: 'POST',
@@ -54,5 +53,17 @@ node {
         }
     }
 }
+
+// import groovy.json.JsonSlurper
+// import groovy.json.JsonOutput
+// node{
+//     stage('payload'){
+//         sleep(time: 20, unit: 'SECONDS')
+//         def parser = new JsonSlurper()
+//         def obj = parser.parseText(payload)
+//         def prettyJsonString = JsonOutput.prettyPrint(JsonOutput.toJson(obj))
+//         echo "API response is ${prettyJsonString}"
+//     }
+// }
 
 }
