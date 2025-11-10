@@ -8,6 +8,7 @@ package com.example
                 git url: 'https://github.com/hpehl/maven-multi-module-template.git', 
                 branch: 'main'
                 def output = sh(script: "grep -r '.pom' .", returnStatus: true)
+                echo "pom files found"
                 if (output == 0) {
                     sh "${mvnHome}/bin/mvn -B -DskipTests clean install"
                 } else {
