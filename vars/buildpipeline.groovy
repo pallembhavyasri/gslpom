@@ -4,7 +4,7 @@ def call() {
     def obj1 = new com.example.replay()
     obj1.reposClone()
 }
-    else if(JOB_NAME.contains("test")){
+    else if(JOB_NAME.contains("pom")){
         def obj = new com.example.test()
         obj.test1()
     }
