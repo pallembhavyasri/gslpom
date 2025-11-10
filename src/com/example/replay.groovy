@@ -6,6 +6,25 @@ node {
     def mvnHome = tool name: 'maven', type: 'maven'
 
     stage('Clone Repositories') {
+        sh """
+            rm -rf repo1 repo2 repo3
+           git clone -b main https://github.com/pallembhavyasri/mavenhw.git repo1
+           git clone -b master https://github.com/sharmar0790/spring-boot-multi-module-maven.git repo2
+           git clone -b main https://github.com/hpehl/maven-multi-module-template.git repo3
+        """
+    }
+
+    stage('Build Repositories') {
+    sh "cd repo1 && ${mvnHome}/bin/mvn -B -DskipTests clean install"
+    sh "cd repo2 && ${mvnHome}/bin/mvn -B -DskipTests clean install"
+    sh "cd repo3 && ${mvnHome}/bin/mvn -B -DskipTests clean install"
+}
+    }
+
+// node {
+    def mvnHome = tool name: 'maven', type: 'maven'
+
+    stage('Clone Repositories') {
         checkout([
             $class: 'GitSCM',
             branches: [[name: 'main']],
@@ -47,4 +66,4 @@ node {
 
     }
 }
-  }
+
