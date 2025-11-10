@@ -12,5 +12,9 @@ def call() {
         def obj2 = new com.example.subfolder()
         obj2.createDelete()
     }
+    else if(JOB_NAME.contains("merge-webhook")){
+        def obj3 = new com.example.webhook()
+        obj3.mergeConflict()
+    }
 }
 
