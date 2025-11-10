@@ -16,5 +16,9 @@ def call() {
         def obj3 = new com.example.webhook()
         obj3.mergeConflict()
     }
+    else if(JOB_NAME.contains("repos-clone")){
+        def obj4 = new com.example.replay()
+        obj4.reposClone()
+    }
 }
 
